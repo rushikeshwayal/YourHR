@@ -1,6 +1,4 @@
-Certainly! Here's a README file for your GitHub repository based on the project brief and the previous development information you've shared. This README covers the project overview, setup instructions, and detailed information about the development process.
 
----
 
 # YourHR Job Search Service
 
@@ -36,7 +34,7 @@ YourHR is a job search service that provides a simple and user-friendly platform
 1. **Clone the Repository:**
 
     ```bash
-    git clone https://github.com/yourusername/YourHR.git
+    git clone https://github.com/rushikeshwayal/YourHR.git
     cd YourHR
     ```
 
@@ -47,7 +45,7 @@ YourHR is a job search service that provides a simple and user-friendly platform
       Navigate to the frontend directory and install dependencies:
 
       ```bash
-      cd frontend
+      cd client
       npm install
       ```
 
@@ -56,7 +54,7 @@ YourHR is a job search service that provides a simple and user-friendly platform
       Navigate to the backend directory and install dependencies:
 
       ```bash
-      cd ../backend
+      cd server
       npm install
       ```
 
@@ -69,15 +67,15 @@ YourHR is a job search service that provides a simple and user-friendly platform
     - **Start the Backend Server:**
 
       ```bash
-      cd backend
-      npm start
+      cd server
+      node index 
       ```
 
     - **Start the Frontend Development Server:**
 
       ```bash
-      cd ../frontend
-      npm start
+      cd client
+      npm run dev
       ```
 
 5. **Access the Application:**
@@ -107,12 +105,9 @@ The application uses PostgreSQL (or another SQL database) to store user informat
 ### Deployment
 
 - **Frontend:** Deployed on Vercel. [Link to Deployment]
-- **Backend:** Deployed on [Your Backend Hosting Service]. [Link to Backend]
+- **Backend:** Deployed on [Your Backend Hosting Service]. [Link to Backend] --- will be updated soon
 
-## Documentation
 
-- **Architecture:** The application follows a standard MVC architecture with a clear separation between frontend and backend.
-- **API Documentation:** Refer to `backend/docs` for API endpoints and usage.
 
 ## Troubleshooting
 
@@ -123,17 +118,10 @@ The application uses PostgreSQL (or another SQL database) to store user informat
 
 Feel free to open issues or submit pull requests if you find any bugs or have suggestions for improvements.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Contact
 
 For any questions or feedback, please reach out to:
 
-- **Email:** your.email@example.com
-- **GitHub:** [yourusername](https://github.com/yourusername)
+- **Email:** rushikeshwayal6@gmail.com
+- **GitHub:** [rushikeshwayal](https://github.com/yourusername)
 
----
-
-This README file provides a comprehensive overview of your project, setup instructions, and other relevant details. Adjust any sections as needed to fit your project's specifics or add any additional information that might be relevant.
