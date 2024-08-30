@@ -1,4 +1,4 @@
-const db = require('../database/database');
+const db = require('../Database/database');
 
 const getJobs = async (req, res) => {
   const jobId = req.query.id;
