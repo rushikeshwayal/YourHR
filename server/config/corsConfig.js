@@ -1,7 +1,9 @@
+const cors = require('cors');
+
+// List of allowed origins
 const allowedOrigins = [
-  'http://localhost:5173', // Development
-  'https://your-hr-rosy.vercel.app/', // Production
-  // Add more domains as needed
+  'https://your-hr-client.vercel.app/',
+  'http://localhost:3000', // Add other allowed origins if needed
 ];
 
 const corsConfig = {
@@ -11,7 +13,17 @@ const corsConfig = {
     } else {
       callback(new Error('Not allowed by CORS'));
     }
-  }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 };
+
+// Use the CORS configuration in your Express app
+const express = require('express');
+const app = express();
+
+app.use(cors(corsConfig));
+
+// Your routes and other middleware here
 
 module.exports = corsConfig;
