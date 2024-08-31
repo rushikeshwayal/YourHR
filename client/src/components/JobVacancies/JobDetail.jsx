@@ -12,6 +12,7 @@ function JobDetails() {
   const [job, setJob] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [apply, setApply] = useState([]); // Initialize apply as an empty array
   const [values, setValues] = useState({
     email: userEmail,
     resume: null, // Store file object here
@@ -19,6 +20,7 @@ function JobDetails() {
     job_id: jobId,
   });
 
+  // Fetch job details
   useEffect(() => {
     const fetchJobDetails = async () => {
       if (!jobId) {
@@ -42,6 +44,24 @@ function JobDetails() {
 
     fetchJobDetails();
   }, [jobId]);
+
+  // Fetch apply details
+  useEffect(() => {
+    const fetchApplyDetails = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/apply`);
+        if (!response.ok) {
+          throw new Error('Network Error');
+        }
+        const data = await response.json();
+        setApply(data);
+      } catch (error) {
+        setError(error.message);
+      }
+    };
+
+    fetchApplyDetails();
+  }, [jobId]); // Add jobId as a dependency to trigger on jobId change
 
   const handleChange = (e) => {
     if (e.target.name === 'resume') {
@@ -74,18 +94,23 @@ function JobDetails() {
       if (response.ok) {
         const data = await response.json();
         console.log("Form submitted successfully:", data);
+        alert('Form Submitted');
         // Reset form or display success message as needed
       } else {
         console.error("Error submitting form:", response.statusText);
-        // Handle error response as needed
+        alert('Error submitting form');
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      // Handle network or other errors
+      alert('Error submitting form');
     }
-    alert('Form Submitted');
+   window.location.reload(false);
   };
-  console.log(job)
+
+  // Check if the current user has already applied for this job
+  const hasApplied = apply.some(
+    (applyItem) => applyItem.email === userEmail && applyItem.job_id.toString() === jobId
+  );
 
   return (
     <div>
@@ -97,7 +122,6 @@ function JobDetails() {
         <p>Error: {error}</p>
       ) : job ? (
         <div>
-        
           <div className="bg-white overflow-hidden shadow rounded-lg border">
             <div className="px-4 py-5 sm:px-6">
               <h3 className="text-lg leading-6 font-medium text-gray-900">
@@ -192,58 +216,67 @@ function JobDetails() {
               </div>
             </div>
           </div>
+          {!hasApplied && ( // Show form only if user hasn't applied
+            <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md mt-8">
+              <div className="mb-4">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={values.email}
+                    readOnly
+                  onChange={handleChange}
 
-          <form onSubmit={handleSubmit}>
-            <h1 className="font-bold mt-10 text-center text-xl">Fill Form To Apply</h1>
-            <div className="mt-5">
-              <div className="mb-5 ml-40 w-96">
-                <label
-                  htmlFor="resume"
-                  className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Upload Resume
+                  required
+                  className="mt-1 block w-full rounded-md  shadow-sm  border-none focus:border-none sm:text-sm"
+                />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="resume" className="block text-sm font-medium text-gray-700">
+                  Resume (PDF)
                 </label>
                 <input
                   type="file"
-                  name="resume"
                   id="resume"
+                  name="resume"
+                  accept=".pdf"
                   onChange={handleChange}
-                  className="border border-gray-300 rounded-md"
+                  required
+                  className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
                 />
               </div>
-
-              <div className="mb-5 ml-40 w-96">
-                <label
-                  htmlFor="why_hired"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Why should we hire you?
+              <div className="mb-4">
+                <label htmlFor="why_hired" className="block text-sm font-medium text-gray-700">
+                  Why Should You Be Hired?
                 </label>
                 <textarea
                   id="why_hired"
                   name="why_hired"
-                  rows="4"
-                  className="block w-full p-2.5 text-sm text-gray-900 border border-gray-300 rounded-lg"
-                  placeholder="Write your answer here..."
                   value={values.why_hired}
                   onChange={handleChange}
                   required
-                ></textarea>
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                />
               </div>
-
-              <div className="flex justify-center mt-5">
+              <div>
                 <button
                   type="submit"
-                  className="px-6 py-3 text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+                  className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
-                  Submit
+                  Apply
                 </button>
               </div>
-            </div>
-          </form>
+            </form>
+          )}
+          {hasApplied && (
+            <p className="mt-6 text-green-600">You have already applied for this job.</p>
+          )}
         </div>
       ) : (
-        <p>No job details available.</p>
+        <p>No job details found.</p>
       )}
     </div>
   );
