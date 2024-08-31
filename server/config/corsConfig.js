@@ -1,5 +1,7 @@
 const allowedOrigins = [
-  'http://localhost:5173',
+  'http://localhost:5173', // Development
+  'https://your-hr-rosy.vercel.app/', // Production
+  // Add more domains as needed
 ];
 
 const corsConfig = {

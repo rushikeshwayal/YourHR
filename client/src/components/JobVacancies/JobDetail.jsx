@@ -29,7 +29,7 @@ function JobDetails() {
         return;
       }
       try {
-        const response = await fetch(`http://localhost:3000/job?id=${jobId}`);
+        const response = await fetch(`https://your-hr-rosy.vercel.app/job?id=${jobId}`);
         if (!response.ok) {
           throw new Error('Network Error');
         }
@@ -49,7 +49,7 @@ function JobDetails() {
   useEffect(() => {
     const fetchApplyDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/apply`);
+        const response = await fetch(`https://your-hr-rosy.vercel.app/apply`);
         if (!response.ok) {
           throw new Error('Network Error');
         }
@@ -86,7 +86,7 @@ function JobDetails() {
       formData.append('why_hired', values.why_hired);
       formData.append('job_id', values.job_id);
 
-      const response = await fetch("http://localhost:3000/post/apply", {
+      const response = await fetch("https://your-hr-rosy.vercel.app/post/apply", {
         method: "POST",
         body: formData,
       });

@@ -30,7 +30,7 @@ function UserDetailForm() {
   useEffect(() => {
     const fetchJobDetails = async () => {
       try {
-        const response = await fetch('http://localhost:3000/applicant');
+        const response = await fetch('https://your-hr-rosy.vercel.app/applicant');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -75,7 +75,7 @@ function UserDetailForm() {
 
     // Make a POST request to the API
     try {
-      const response = await fetch("http://localhost:3000/post/applicant", {
+      const response = await fetch("https://your-hr-rosy.vercel.app/post/applicant", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

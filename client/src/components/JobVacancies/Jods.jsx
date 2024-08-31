@@ -37,7 +37,7 @@ function Jobs() {
 
   const fetchApiData = async () => {
     try {
-      const response = await fetch('http://localhost:3000/job');
+      const response = await fetch('https://your-hr-rosy.vercel.app/job');
       if (!response.ok) {
         throw new Error("Network Error");
       }

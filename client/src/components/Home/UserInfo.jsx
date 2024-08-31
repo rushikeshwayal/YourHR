@@ -11,7 +11,7 @@ function UserInfo() {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const response = await fetch('http://localhost:3000/applicant');
+        const response = await fetch('https://your-hr-rosy.vercel.app/applicant');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
