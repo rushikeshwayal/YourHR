@@ -8,6 +8,7 @@ const getApplicants = async (req, res) => {
     }
     res.json(result.rows);
   } catch (error) {
+    console.error('Error fetching applicants:', error.message);
     res.status(500).json({ msg: 'Error occurred while fetching data' });
   }
 };
@@ -26,7 +27,7 @@ const postApplicant = async (req, res) => {
     );
     res.status(201).json(result);
   } catch (error) {
-    console.error('Error inserting data:', error);
+    console.error('Error inserting data:', error.message);
     res.status(500).json({ error: 'Error inserting data' });
   }
 };
