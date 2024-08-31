@@ -51,7 +51,7 @@ const getapplyJob = async (req, res) => {
         const result = await db.query('SELECT * FROM job_apply_applications');
         res.json(result.rows);
     } catch (error) {
-        console.error('Error fetching job applications:', error);
+        console.error('Error fetching job applications:', error.message);
         res.status(500).send({ msg: 'Error occurred while fetching job applications' });
     }
 };
@@ -81,7 +81,7 @@ const postapplyJob = async (req, res) => {
 
         res.status(200).json(result.rows[0]);
     } catch (error) {
-        console.error('Error processing application:', error);
+        console.error('Error processing application:', error.message);
         res.status(500).send({ msg: 'Error occurred while applying for the job' });
     }
 };

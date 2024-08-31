@@ -8,7 +8,6 @@
     { "src": "/post/applicant", "dest": "index.js" },
     { "src": "/apply", "dest": "index.js" },
      { "src": "/post/apply", "dest": "index.js" },
-     { "src": "/post/apply", "dest": "index.js" },
      { "src": "/job", "dest": "index.js" },
     { "src": "/(.*)", "dest": "index.js" } 
   ]
