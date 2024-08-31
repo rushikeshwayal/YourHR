@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "index.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/applicant", "dest": "index.js" },
+    { "src": "/post/applicant", "dest": "index.js" },
+    { "src": "/apply", "dest": "index.js" },
+     { "src": "/post/apply", "dest": "index.js" },
+     { "src": "/post/apply", "dest": "index.js" },
+     { "src": "/job", "dest": "index.js" },
+    { "src": "/(.*)", "dest": "index.js" } 
+  ]
+}
