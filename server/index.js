@@ -13,9 +13,9 @@ app.use(express.json());
 app.use(cors(corsConfig)); // Apply CORS configuration
 
 // Route handlers
-app.use('/applicants', applicantRoutes); // Ensure routes are correctly prefixed
-app.use('/jobs', jobRoutes);
-app.use('/apply', applyRoutes);
+app.use( applicantRoutes); // Ensure routes are correctly prefixed
+app.use( jobRoutes);
+app.use( applyRoutes);
 
 // Basic route to test server
 app.get('/', (req, res) => {
