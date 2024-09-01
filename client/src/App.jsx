@@ -17,7 +17,7 @@ import { AuthProvider } from './components/Authentication/components/firebase/fi
 function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <BrowserRouter >
         <Routes>
           <Route index element={<Login />} />
           <Route path='/register' element={<Register />} />

@@ -7,14 +7,15 @@ import Lodder from "../Authentication/components/Lodding/LodderFile";
 import NavBar from "../Home/NavToHome";
 
 // Helper function to debounce input
-function debounce(func, delay) {
-  let timeoutId;
-  return function(...args) {
-    if (timeoutId) clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => {
-      func(...args);
-    }, delay);
-  };
+function useDebouncedCallback(callback, delay) {
+  const debouncedFn = useCallback(
+    (...args) => {
+      const handle = setTimeout(() => callback(...args), delay);
+      return () => clearTimeout(handle);
+    },
+    [callback, delay]
+  );
+  return debouncedFn;
 }
 
 function Jobs() {
@@ -35,27 +36,27 @@ function Jobs() {
     return () => unsubscribe();
   }, [navigate]);
 
-  const fetchApiData = async () => {
-    try {
-      const response = await fetch('https://your-hr-rosy.vercel.app/job');
-      if (!response.ok) {
-        throw new Error("Network Error");
-      }
-      const data = await response.json();
-      setVacancies(data);
-      setFilteredVacancies(data); // Initially set filtered vacancies to all vacancies
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const fetchApiData = async () => {
+      try {
+        const response = await fetch('https://your-hr-rosy.vercel.app/job');
+        if (!response.ok) {
+          throw new Error("Network Error");
+        }
+        const data = await response.json();
+        setVacancies(data);
+        setFilteredVacancies(data); // Initially set filtered vacancies to all vacancies
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchApiData();
   }, []);
 
-  const handleSearchChange = useCallback(debounce((searchValue) => {
+  const handleSearchChange = useDebouncedCallback((searchValue) => {
     if (!searchValue) {
       setFilteredVacancies(vacancies); // Show all vacancies if search is empty
     } else {
@@ -66,7 +67,7 @@ function Jobs() {
       );
       setFilteredVacancies(filtered);
     }
-  }, 300), [vacancies]);
+  }, 300);
 
   const onInputChange = (e) => {
     const value = e.target.value.toLowerCase();
@@ -139,8 +140,8 @@ function Jobs() {
                     </button>
                   </div>
                 </div>
-                {filteredVacancies.map((vac, index) => (
-                  <div key={index}>
+                {filteredVacancies.map((vac) => (
+                  <div key={vac.job_id}>
                     <div className="m-0 flex flex-wrap">
                       <div>
                         <div className="group relative mx-2 mt-10 grid max-w-screen-md grid-cols-12 space-x-8 overflow-hidden rounded-lg border py-8 text-gray-700 shadow transition-shadow duration-300 hover:shadow-lg sm:mx-auto">
@@ -149,18 +150,25 @@ function Jobs() {
                               <img src="https://img.freepik.com/premium-vector/job-logo-design-icon-vector_999827-645.jpg?w=1380" alt="" className="h-full w-full object-cover text-gray-700" />
                             </div>
                           </a>
-                          <div className="col-span-11 flex flex-col pr-8 text-left sm:pl-4">
-                            <h3 className="text-sm text-gray-600">{vac.company_name}</h3>
-                            <a href="#" className="mb-3 overflow-hidden pr-7 text-lg font-semibold sm:text-xl">{vac.job_title}</a>
-                            <p className="overflow-hidden pr-7 text-sm">{vac.skills_required}</p>
-
-                            <div className="mt-5 flex flex-col space-y-3 text-sm font-medium text-gray-500 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-2">
-                              <div>Status:<span className="ml-2 mr-3 rounded-full bg-green-100 px-2 py-0.5 text-green-900">{vac.job_status}</span></div>
-                              <div>Salary:<span className="ml-2 mr-3 rounded-full bg-blue-100 px-2 py-0.5 text-blue-900">{vac.salary_range}</span></div>
+                          <div className="col-span-10 flex flex-col space-y-4 pr-10 sm:col-span-8 sm:pr-0 lg:col-span-6">
+                            <h2 className="w-full text-2xl font-bold text-gray-700 transition-colors duration-300 group-hover:text-gray-900">{vac.job_title}</h2>
+                            <div className="flex flex-col space-y-1 text-gray-700 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-4">
+                              <a href="#" className="text-sm font-medium text-gray-600 hover:text-gray-500">{vac.company_name}</a>
+                              <div className="hidden h-1 w-1 rounded-full bg-gray-500 sm:block"></div>
+                              <p className="text-sm text-gray-500">{vac.salary_range}</p>
+                            </div>
+                            <div>
+                              <p className="text-gray-500">{vac.skills_required}</p>
                             </div>
                           </div>
-
-                          <button onClick={() => { handleApply(vac.job_id) }} className="absolute rounded-2xl right-4 top-1/2 transform-translate-y-1/2 hidden group-hover:block text-center bg-black px-6 py-2 text-sm font-medium text-white shadow-md">Apply Now</button>
+                          <div className="order-1 col-span-1 mr-2 text-right sm:order-2 lg:col-span-2">
+                            <button
+                              onClick={() => handleApply(vac.job_id)}
+                              className="mr-4 inline-block rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white bg-green-500 shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong"
+                            >
+                              Apply Now
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -171,7 +179,9 @@ function Jobs() {
           )}
         </div>
       ) : (
-        <div>Unauthorized Access</div>
+        <div>
+          <p>User not authenticated</p>
+        </div>
       )}
     </div>
   );
