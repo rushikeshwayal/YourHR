@@ -47,7 +47,7 @@ function JobDetails() {
 
   // Fetch apply details
   useEffect(() => {
-    const fetchApplyDetails = async () => {
+    const fetchApplyDetails = async () => { 
       try {
         const response = await fetch(`https://your-hr-rosy.vercel.app/apply`);
         if (!response.ok) {
@@ -104,7 +104,7 @@ function JobDetails() {
       console.error("Error submitting form:", error);
       alert('Error submitting form');
     }
-   window.location.reload(false);
+  //  window.location.reload(false);
   };
 
   // Check if the current user has already applied for this job

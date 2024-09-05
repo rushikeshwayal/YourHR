@@ -60,7 +60,7 @@ function Hero() {
                 Get Started now
               </h1>
               <p className="text-center text-xl text-gray-800 ">
-                Be part of millions of people around the world using tailus in modern User Interfaces.
+                Be part of millions of people around the world using YourHR .
               </p>
               <div className="flex flex-wrap justify-center gap-6">
                 <a

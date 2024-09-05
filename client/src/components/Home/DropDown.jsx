@@ -22,7 +22,7 @@ function DropdownOut() {
     onMouseOver={DropdownIn} 
     onMouseOut={DropdownOut}
   >
-   Categories
+   YourHR.Academy
 
     <img className="h-5" src={DropDownpng} alt="Dropdown Icon" />
   </button>
@@ -35,16 +35,19 @@ function DropdownOut() {
     onMouseOut={DropdownOut}
   >
     <li className="hover:bg-gray-100 hover:text-black transition duration-300 rounded-lg">
-      <a className="block px-3 py-2 text-end mr-5" href=".">Cactus</a>
+      <a className="block px-3 py-2 text-end mr-5" href="/learnings">Learnings</a>
     </li>
     <li className="hover:bg-gray-100 hover:text-black transition duration-300 rounded-lg">
-      <a className="block px-3 py-2 text-end mr-5" href=".">Bonsai</a>
+      <a className="block px-3 py-2 text-end mr-5" href="/workWithCoach">Work With A Coach</a>
     </li>
      <li className="hover:bg-gray-100 hover:text-black transition duration-300 rounded-lg">
-      <a className="block px-3 py-2 text-end mr-5" href=".">Succulent</a>
+      <a className="block px-3 py-2 text-end mr-5" href="/sessions" >Sessions</a>
     </li>
      <li className="hover:bg-gray-100 hover:text-black transition duration-300 rounded-lg">
-      <a className="block px-3 py-2 text-end mr-5" href=".">Indoor Plants</a>
+      <a className="block px-3 py-2 text-end mr-5" href="/getbadges">Get Badges</a>
+    </li>
+     <li className="hover:bg-gray-100 hover:text-black transition duration-300 rounded-lg">
+      <a className="block px-3 py-2 text-end mr-5" href="/community" >Community</a>
     </li>
   </ul>
 </div>

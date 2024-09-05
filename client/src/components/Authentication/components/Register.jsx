@@ -58,7 +58,7 @@ function Register() {
 
   return (
     <div className="flex flex-col gap-5 justify-center items-center min-h-screen">
-        <img className="size-24" src="https://websitedemos.net/plant-shop-04/wp-content/uploads/sites/160/2020/07/grow-plant-store-logo-green.svg" alt="Grow"/>
+         <p className="font-bold text-3xl text-green-600">YourHR</p>
 
       {error && <p className="text-red-500">{error}</p>} {/* Display error message */}
       {success && <p className="text-green-500">{success}</p>} {/* Display success message */}

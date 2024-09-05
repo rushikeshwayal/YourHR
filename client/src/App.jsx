@@ -13,12 +13,21 @@ import JobDetails from './components/JobVacancies/JobDetail'
 
 
 import { AuthProvider } from './components/Authentication/components/firebase/firebase'; // Adjust path if necessary
-
+import Gettingstarted from './components/studentSection/Learning/Gettingstarted'
+import Session from './components/studentSection/Sessions/Sessions'
+import Community from './components/studentSection/Community/community'
+import Badges from './components/studentSection/Badges/Badges'
+import MentorBookingPage from './components/studentSection/Work With Mentor/Workwithmentor'
+import Ecrow from './components/Escrow/Escrow'
+import Entrerpinors from './components/Entrepreneur/entrepreneur'
+import Chatbot from './components/ChatBot/Chatbot'
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter >
+      <Chatbot />
         <Routes>
+       
           <Route index element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/reset-password' element={<ResetPassword />} />
@@ -26,6 +35,13 @@ function App() {
           <Route path='/profile' element={<Profile />} />
           <Route path="/apply" element={<Jobs />} />
         <Route path="/job" element={<JobDetails />} />
+        <Route path="/learnings" element={<Gettingstarted />} />
+        <Route path="/sessions" element={<Session />} />
+        <Route path="/Community" element={<Community />} />
+        <Route path="/getbadges" element={<Badges />} />
+        <Route path="/workwithcoach" element={<MentorBookingPage />} />
+        <Route path="/about" element={<Ecrow />} />
+        <Route path="/entrerpinors" element={<Entrerpinors />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

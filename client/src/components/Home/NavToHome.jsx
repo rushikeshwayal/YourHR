@@ -1,6 +1,6 @@
 // import React from "react";
 
-// import DropDown from "./DropDown";
+import DropDown from "./DropDown";
 // import LogOutBtn from "./LogOutBtn";
 import UserPng from '../../assets/User.png'
 
@@ -11,13 +11,14 @@ function NavBar() {
         <div className="flex h-20 items-center z-20 text-white " >
            
             <div className="mr-auto  w-20 text-center ml-10">
-                <a href="." className="font-bold text-2xl">YourHR</a>
+                <a href="/home" className="font-bold text-2xl">YourHR</a>
                 </div>
                 <div className="flex justify-around items-center text-center w-[60%]">
                 <a href="/home">Home</a>
                 <a href="/apply ">Find Job</a>
-                {/* <DropDown /> */}
-                <a href="/about">About Us</a>
+                <DropDown />
+                <a href="/about">About Escrow</a>
+                <a href="/entrerpinors">Join With Entrerpinors</a>
                 {/* <a href="/home">Contact Us</a> */}
                 {/* <LogOutBtn />
                  */}

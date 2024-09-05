@@ -95,6 +95,7 @@ function UserDetailForm() {
       console.error("Error submitting form:", error);
       // Handle network or other errors
     }
+    window.location.reload(false)
   };
 
   if (loading) {
