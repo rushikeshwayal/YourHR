@@ -38,7 +38,7 @@ function DropdownOut() {
       <a className="block px-3 py-2 text-end mr-5" href="/learnings">Learnings</a>
     </li>
     <li className="hover:bg-gray-100 hover:text-black transition duration-300 rounded-lg">
-      <a className="block px-3 py-2 text-end mr-5" href="/workWithCoach">Work With A Coach</a>
+      <a className="block px-3 py-2 text-end mr-5" href="/workwithcoach">Work With A Coach</a>
     </li>
      <li className="hover:bg-gray-100 hover:text-black transition duration-300 rounded-lg">
       <a className="block px-3 py-2 text-end mr-5" href="/sessions" >Sessions</a>

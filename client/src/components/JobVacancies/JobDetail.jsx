@@ -43,7 +43,7 @@ function JobDetails() {
     };
 
     fetchJobDetails();
-  }, [jobId]);
+  }, [jobId]);  
 
   // Fetch apply details
   useEffect(() => {

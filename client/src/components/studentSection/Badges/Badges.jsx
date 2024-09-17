@@ -32,7 +32,7 @@ function Badges() {
 
                 <main className="flex-grow p-8">
                     <header className="text-center mb-10">
-                        <h1 className="text-4xl font-bold text-gray-800">Choose Your Badge</h1>
+                        <h1 className="text-4xl font-bold text-gray-800">Get Your Badge Now!</h1>
                         <p className="text-gray-600 mt-4">Select the badge that boosts your profile level....!</p>
                     </header>
 
