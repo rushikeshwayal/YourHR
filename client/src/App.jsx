@@ -15,7 +15,7 @@ import JobDetails from './components/JobVacancies/JobDetail'
 import { AuthProvider } from './components/Authentication/components/firebase/firebase'; // Adjust path if necessary
 import Gettingstarted from './components/studentSection/Learning/Gettingstarted'
 import Session from './components/studentSection/Sessions/Sessions'
-import Community from './components/studentSection/Community/community'
+import Community from './components/studentSection/Community/Community'
 import Badges from './components/studentSection/Badges/Badges'
 import MentorBookingPage from './components/studentSection/Work With Mentor/Workwithmentor'
 import Ecrow from './components/Escrow/Escrow'
