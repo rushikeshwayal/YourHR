@@ -4,8 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { onAuthStateChanged } from "firebase/auth";
 import { useAuth } from "../Authentication/components/firebase/firebase";
 import Lodder from "../Authentication/components/Lodding/LodderFile";
-import NavBar from "../Home/NavToHome";
+// import NavBar from "../Home/NavToHome";
 import Footer from "../Home/Footer";
+import NavBarBlack from "../Home/NavToHomeBlack";
 
 // Helper function to debounce input
 function useDebouncedCallback(callback, delay) {
@@ -115,7 +116,9 @@ function Jobs() {
             <p>Error: {error}</p>
           ) : (
             <div className="bg-gradient-to-b from-green-500 to-green-0 h-40">
-              <NavBar />
+              {/* <NavBar />
+               */}
+               <NavBarBlack/>
               <div className="space-y-5 flex flex-wrap flex-col justify-around items-center min-h-screen w-full">
                 <div>
                   <div className="relative flex mt-20">
