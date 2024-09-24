@@ -18,7 +18,7 @@ function NavBar() {
                 <a href="/apply ">Find Job</a>
                 <DropDown />
                 <a href="/about">About Escrow</a>
-                <a href="/entrerpinors">Join With Entrerpinors</a>
+                <a href="/entrerpinors">Join With Entrepreneurs</a>
                 {/* <a href="/home">Contact Us</a> */}
                 {/* <LogOutBtn />
                  */}

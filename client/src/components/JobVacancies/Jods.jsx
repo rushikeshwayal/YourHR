@@ -7,6 +7,7 @@ import Lodder from "../Authentication/components/Lodding/LodderFile";
 // import NavBar from "../Home/NavToHome";
 import Footer from "../Home/Footer";
 import NavBarBlack from "../Home/NavToHomeBlack";
+import SearchIcon from "../../assets/search-icon-png-9966.png";
 
 // Helper function to debounce input
 function useDebouncedCallback(callback, delay) {
@@ -124,7 +125,7 @@ function Jobs() {
                   <div className="relative flex mt-20">
                     <input
                       type="search"
-                      className="peer block min-h-[auto] w-full rounded bg-transparent px-20 border-black border-2 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear"
+                      className="peer block min-h-[auto] w-full rounded bg-transparent px-10 border-black border-2 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear"
                       placeholder="Search"
                       aria-label="Search"
                       onChange={onInputChange}
@@ -134,7 +135,7 @@ function Jobs() {
                       className="relative z-[2] -ms-0.5 flex items-center rounded-e bg-primary px-8 text-xs font-medium uppercase leading-normal text-white bg-black shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300"
                       type="button"
                     >
-                      {/* Search Icon */}
+                      <img src={SearchIcon} className="h-10 w-10 object-contain " />
                     </button>
                   </div>
                 </div>
