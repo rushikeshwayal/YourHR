@@ -21,6 +21,7 @@ import MentorBookingPage from './components/studentSection/Work With Mentor/Work
 import Ecrow from './components/Escrow/Escrow'
 import Entrerpinors from './components/Entrepreneur/entrepreneur'
 import Chatbot from './components/ChatBot/Chatbot'
+import UploadJob from './components/JobVacancies/UploadJob'
 function App() {
   return (
     <AuthProvider>
@@ -42,6 +43,7 @@ function App() {
         <Route path="/workwithcoach" element={<MentorBookingPage />} />
         <Route path="/about" element={<Ecrow />} />
         <Route path="/entrerpinors" element={<Entrerpinors />} />
+        <Route path="/post/job" element={<UploadJob/>} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

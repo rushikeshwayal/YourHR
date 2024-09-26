@@ -16,6 +16,7 @@ function NavBar() {
                 <div className="flex justify-around items-center text-center w-[60%]">
                 <a href="/home">Home</a>
                 <a href="/apply ">Find Job</a>
+                <a href="/post/job">Post Job</a>
                 <DropDown />
                 <a href="/about">About Escrow</a>
                 <a href="/entrerpinors">Join With Entrepreneurs</a>

@@ -6,7 +6,7 @@ import UserPng from '../../assets/User.png'
 
 
 
-function NavBar() {
+function NavBarBlack() {
     return(
         <div className="flex h-20 items-center z-20 text-black " >
            
@@ -16,9 +16,10 @@ function NavBar() {
                 <div className="flex justify-around items-center text-center w-[60%]">
                 <a href="/home">Home</a>
                 <a href="/apply ">Find Job</a>
+                <a href="/post/job">Post Job</a>
                 <DropDownBlack />
                 <a href="/about">About Escrow</a>
-                <a href="/entrerpinors">Join With Entrerpinors</a>
+                <a href="/entrerpinors">Join With Entrepreneurs</a>
                 {/* <a href="/home">Contact Us</a> */}
                 {/* <LogOutBtn />
                  */}
@@ -38,6 +39,6 @@ function NavBar() {
     );
 }
 
-export default NavBar;
+export default NavBarBlack;
 
 {/* <img src="https://websitedemos.net/plant-shop-04/wp-content/uploads/sites/160/2020/07/grow-plant-store-logo-white.svg" alt="Grow"/> */}
