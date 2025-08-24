@@ -40,7 +40,7 @@ function Login() {
   return (
     <div className="flex flex-col gap-5 justify-center items-center min-h-screen">
       {/* <img className="size-24" src="https://websitedemos.net/plant-shop-04/wp-content/uploads/sites/160/2020/07/grow-plant-store-logo-green.svg" alt="Grow" /> */}
-      <p className="font-bold text-3xl text-green-600">YourHR</p>
+      <p className="font-bold text-3xl text-green-600">TalentVerse</p>
       <div className="flex flex-col gap-10 justify-center items-center">
         <input
           className="px-5 py-3 border-2 w-80 border-black rounded-lg"

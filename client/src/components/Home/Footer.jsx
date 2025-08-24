@@ -12,7 +12,7 @@ function Footer() {
                 src="https://websitedemos.net/plant-shop-04/wp-content/uploads/sites/160/2020/07/grow-plant-store-logo-green.svg"
                 alt="GROW"
               /> */}
-              YourHR
+              TalentVerse
             </div>
 
             <p className="mt-4 max-w-xs text-gray-500">

@@ -119,7 +119,7 @@ function Jobs() {
             <div className="bg-gradient-to-b from-green-500 to-green-0 h-40">
               {/* <NavBar />
                */}
-               <NavBarBlack/>
+              <NavBarBlack />
               <div className="space-y-5 flex flex-wrap flex-col justify-around items-center min-h-screen w-full">
                 <div>
                   <div className="relative flex mt-20">
@@ -141,52 +141,51 @@ function Jobs() {
                 </div>
                 <div className="flex justify-between flex-wrap">
                   <div className="w-80  fixed ">
-                  <div className="gap-40">
-                    <h1 className="font-bold">Salary Range</h1>
-                    <div className="flex flex-wrap flex-col">
-                      <label>
-                        <input
-                          type="radio"
-                          name="salaryOrder"
-                          value="low-to-high"
-                          checked={salaryOrder === 'low-to-high'}
-                          onChange={() => handleSalaryOrderChange('low-to-high')}
-                        />
-                        Low to High
-                      </label>
-                      <label>
-                        <input
-                          type="radio"
-                          name="salaryOrder"
-                          value="high-to-low"
-                          checked={salaryOrder === 'high-to-low'}
-                          onChange={() => handleSalaryOrderChange('high-to-low')}
-                        />
-                        High to Low
-                      </label>
-                    </div>
-                    <div>
-                      <h1 className="font-bold mt-4 mb-2">Job Type</h1>
-                      <select
-                        className="border w-40 rounded-md px-4 py-2 bg-gray-800 text-white"
-                        onChange={(e) => handleJobTypeChange(e.target.value)}
-                        value={jobType}
-                      >
-                        <option value="" disabled>Job Type</option>
-                        <option value="Full-time">Full-time</option>
-                        <option value="Part-time">Part-time</option>
-                        <option value="Internship">Internship</option>
-                        <option value="Contract">Contract</option>
-                      </select>
-                    </div>
-                    <div>
-                      <button
-                        onClick={resetFilters}
-                        className="mt-4 text-white bg-red-500 px-4 py-2 rounded hover:bg-red-700 transition duration-300"
-                      >
-                        Remove Filters
-                      </button>
-                    </div>
+                    <div className="gap-40">
+                      <h1 className="font-bold">Salary Range</h1>
+                      <div className="flex flex-wrap flex-col">
+                        <label>
+                          <input
+                            type="radio"
+                            name="salaryOrder"
+                            value="low-to-high"
+                            checked={salaryOrder === 'low-to-high'}
+                            onChange={() => handleSalaryOrderChange('low-to-high')}
+                          />
+                          Low to High
+                        </label>
+                        <label>
+                          <input
+                            type="radio"
+                            name="salaryOrder"
+                            value="high-to-low"
+                            checked={salaryOrder === 'high-to-low'}
+                            onChange={() => handleSalaryOrderChange('high-to-low')}
+                          />
+                          High to Low
+                        </label>
+                      </div>
+                      {/* <div>
+                        <h1 className="font-bold mt-4 mb-2">Job Type</h1>
+                        <select
+                          className="border w-40 rounded-md px-4 py-2 bg-gray-800 text-white"
+                          onChange={(e) => handleJobTypeChange(e.target.value)}
+                          value={jobType}
+                        >
+                          <option value="" disabled>Job Type</option>
+                          <option value="Per Hour">Per Hour</option>
+                          <option value="Per Project">Per Project</option>
+
+                        </select>
+                      </div> */}
+                      <div>
+                        <button
+                          onClick={resetFilters}
+                          className="mt-4 text-white bg-red-500 px-4 py-2 rounded hover:bg-red-700 transition duration-300"
+                        >
+                          Remove Filters
+                        </button>
+                      </div>
                     </div>
                   </div>
 
@@ -227,11 +226,11 @@ function Jobs() {
                   </div>
                 </div>
               </div>
-                <div className="mt-40">
-                    <Footer />
-                </div>
+              <div className="mt-40">
+                <Footer />
+              </div>
             </div>
-          
+
           )}
         </div>
       ) : (

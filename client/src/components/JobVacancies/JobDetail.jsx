@@ -43,11 +43,11 @@ function JobDetails() {
     };
 
     fetchJobDetails();
-  }, [jobId]);  
+  }, [jobId]);
 
   // Fetch apply details
   useEffect(() => {
-    const fetchApplyDetails = async () => { 
+    const fetchApplyDetails = async () => {
       try {
         const response = await fetch(`https://your-hr-rosy.vercel.app/apply`);
         if (!response.ok) {
@@ -82,11 +82,11 @@ function JobDetails() {
     try {
       const formData = new FormData();
       formData.append('email', values.email);
-      formData.append('resume', values.resume);
+      formData.append('resume', 'https://drive.google.com/file/d/17vuHwg4mGPCT2lw7q8BFK0gMdNO0v0fP/view?usp=drivesdk');
       formData.append('why_hired', values.why_hired);
       formData.append('job_id', values.job_id);
 
-      const response = await fetch("https://your-hr-rosy.vercel.app/post/apply", {
+      const response = await fetch("https://your-hr-rosy.vercel.app/apply", {
         method: "POST",
         body: formData,
       });
@@ -104,7 +104,7 @@ function JobDetails() {
       console.error("Error submitting form:", error);
       alert('Error submitting form');
     }
-  //  window.location.reload(false);
+    //  window.location.reload(false);
   };
 
   // Check if the current user has already applied for this job
@@ -227,7 +227,7 @@ function JobDetails() {
                   id="email"
                   name="email"
                   value={values.email}
-                    readOnly
+                  readOnly
                   onChange={handleChange}
 
                   required
