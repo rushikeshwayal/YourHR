@@ -4,8 +4,10 @@ const corsConfig = require('./config/corsConfig'); // Adjust path if necessary
 const applicantRoutes = require('./routes/applicantRoutes');
 const jobRoutes = require('./routes/jobRoutes');
 const applyRoutes = require('./routes/applyRoutes');
+const bodyParser = require('body-parser');
 
 const app = express();
+app.use(bodyParser.json());
 const PORT = process.env.PORT || 5000;
 
 // Middleware setup 

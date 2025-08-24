@@ -63,9 +63,8 @@ const getapplyJob = async (req, res) => {
 };
 
 const postapplyJob = async (req, res) => {
-  const { email, why_hired, job_id } = req.body;
+  const { email, resume, why_hired, job_id } = req.body;
   console.log(req.body);
-  const resume = req.file; // File info from multer memory storage
 
   if (!resume) {
     return res.status(400).send({ msg: 'Resume file is required' });
