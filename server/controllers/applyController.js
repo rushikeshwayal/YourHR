@@ -79,7 +79,7 @@ const postapplyJob = async (req, res) => {
     // Save job application to the database
     const result = await db.query(
       'INSERT INTO job_apply_applications (email, resume_link, why_hired, job_id) VALUES ($1, $2, $3, $4) RETURNING *',
-      [email, resumeLink, why_hired, job_id]
+      [email, resume, why_hired, job_id]
     );
 
     res.status(200).json(result.rows[0]);
