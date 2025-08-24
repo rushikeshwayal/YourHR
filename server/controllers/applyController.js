@@ -63,23 +63,17 @@ const getapplyJob = async (req, res) => {
 };
 
 const postapplyJob = async (req, res) => {
-  const { email, resume, why_hired, job_id } = req.body;
+  const { email, why_hired, job_id } = req.body;
   console.log(req.body);
 
-  if (!resume) {
-    return res.status(400).send({ msg: 'Resume file is required' });
-  }
-
   try {
-    const authClient = await authorize();
-    const uploadedFile = await uploadFile(authClient, resume.buffer, resume.originalname);
-
-    const resumeLink = uploadedFile.webViewLink;
+    // Hardcoded resume link (replace with your own dummy link)
+    const resumeLink = "https://drive.google.com/file/d/121Ll0N9VAgkSaMAvZyGjqoL30pFdEb2V/view?usp=sharing";
 
     // Save job application to the database
     const result = await db.query(
       'INSERT INTO job_apply_applications (email, resume_link, why_hired, job_id) VALUES ($1, $2, $3, $4) RETURNING *',
-      [email, resume, why_hired, job_id]
+      [email, resumeLink, why_hired, job_id]
     );
 
     res.status(200).json(result.rows[0]);
