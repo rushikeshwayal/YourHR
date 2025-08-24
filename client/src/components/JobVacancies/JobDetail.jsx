@@ -82,11 +82,11 @@ function JobDetails() {
     try {
       const formData = new FormData();
       formData.append('email', values.email);
-      formData.append('resume', 'https://drive.google.com/file/d/17vuHwg4mGPCT2lw7q8BFK0gMdNO0v0fP/view?usp=drivesdk');
+      formData.append('resume', 'https://drive.google.com/file/d/1SUQ1f_qoII4nITE9tcuFXC1_pr-W3iIk/view?usp=drivesdk');
       formData.append('why_hired', values.why_hired);
       formData.append('job_id', values.job_id);
 
-      const response = await fetch("https://your-hr-rosy.vercel.app/apply", {
+      const response = await fetch("https://your-hr-rosy.vercel.app/post/apply", {
         method: "POST",
         body: formData,
       });
